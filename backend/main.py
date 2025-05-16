@@ -1,6 +1,7 @@
 import os
 import warnings
 import threading
+import backend.load_kaggle_key
 
 from backend.app import app
 from backend.kernel_publisher import start_kernel_publisher

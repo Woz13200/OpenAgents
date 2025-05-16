@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: openagents-backend
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.app:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: qwen-qwq-32b
+      - key: LLM_PROVIDER
+        value: groq
+      - key: KAGGLE_USERNAME
+        sync: false
+      - key: KAGGLE_KEY
+        sync: false
+    plan: free
+    region: frankfurt
+    pythonVersion: 3.10
+    healthCheckPath: /docs
