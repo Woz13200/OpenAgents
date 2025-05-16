@@ -8,3 +8,4 @@ requests
 kaggle
 jinja2
 aiofiles
+flask
