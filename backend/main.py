@@ -37,12 +37,10 @@ threading_pool: ThreadManager = ThreadManager()
 
 message_id_register = VariableRegister(name="message_id_register", backend=VARIABLE_REGISTER_BACKEND)
 
-# Monitor kernel and kill long running kernels
-if app.config["CODE_EXECUTION_MODE"] == "docker":
-    threading.Thread(target=start_kernel_publisher, args=(), daemon=True).start()
+from fastapi import FastAPI
 
-if __name__ == "__main__":
-    import multiprocess
+app = FastAPI()
 
-    multiprocess.set_start_method("spawn", True)
-    app.run()
+@app.get("/")
+def root():
+    return {"message": "OpenAgents est en ligne"}
