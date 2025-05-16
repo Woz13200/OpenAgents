@@ -19,3 +19,4 @@ services:
     region: frankfurt
     pythonVersion: 3.10
     healthCheckPath: /docs
+# Force update for Render
