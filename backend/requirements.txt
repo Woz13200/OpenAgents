@@ -10,4 +10,6 @@ jinja2
 aiofiles
 flask
 flask_cors
-flask_cors
+redis
+langchain
+openai
