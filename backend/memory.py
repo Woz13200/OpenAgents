@@ -6,6 +6,7 @@ from backend.app import app
 from backend.utils.running_time_storage import get_running_time_storage
 from backend.utils.user_conversation_storage import get_user_conversation_storage
 from real_agents.adapters.memory import BaseChatMemory
+from backend.utils.redis_utils import get_user_conversation_redis_client
 
 HUMAN_MESSAGE_KEY = "human_message"
 AI_MESSAGE_KEY = "ai_message"
