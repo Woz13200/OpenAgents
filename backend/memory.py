@@ -35,9 +35,7 @@ class UserMemoryManager:
                 memory_pool = {}
             self.memory_pool = memory_pool
         elif self.backend == DATABASE:
-            with app.app_context():
-                self.redis_client = get_running_time_storage()
-                self.db_client = get_user_conversation_storage()
+            self.db_client = get_user_conversation_redis_client()
         else:
             raise ValueError("Unknown backend option: {}".format(self.backend))
 
@@ -122,9 +120,8 @@ class ChatMemoryManager:
                 memory_pool = {}
             self.memory_pool = memory_pool
         elif self.backend == DATABASE:
-            with app.app_context():
-                self.redis_client = get_running_time_storage()
-                self.db_client = get_user_conversation_storage()
+            self.redis_client = get_running_redis()
+            self.db_client = get_user_conversation_redis_client()
         else:
             raise ValueError("Unknown backend option: {}".format(self.backend))
 

@@ -49,8 +49,7 @@ class VariableRegister:
             self.name = name
             self.counter_name = f"{self.name}:counter"
             self.variables_name = f"{self.name}:variables"
-            with app.app_context():
-                self.redis_client = get_running_time_storage()
+            self.redis_client = get_running_time_storage()
             if not self.redis_client.exists(self.counter_name):
                 self.redis_client.set(self.counter_name, 0)
             else:
